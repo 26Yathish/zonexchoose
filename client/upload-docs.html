@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Candidate Documents | Zonexchoose</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body data-page="upload-docs">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+    <div class="app-shell">
+      <div class="container pb-5">
+        <nav class="navbar navbar-expand-lg glass-nav" aria-label="Primary">
+          <a class="navbar-brand" href="/">
+            <img src="/assets/logo.svg" alt="Zonexchoose logo" class="brand-mark" />
+            <div>
+              <div class="brand-title">Zonexchoose</div>
+              <small>Candidate Verification Upload</small>
+            </div>
+          </a>
+          <div class="ms-auto nav-toggle-group">
+            <button type="button" class="btn btn-sm" data-theme-toggle><span data-theme-label>Theme: Midnight</span></button>
+            <button type="button" class="btn btn-sm" data-voice-toggle><span data-voice-label>Voice: On</span></button>
+          </div>
+        </nav>
+
+        <main id="mainContent" class="page-section">
+          <div class="row g-4">
+            <div class="col-lg-5" id="candidateSummary">
+              <div class="empty-state">Loading candidate invitation...</div>
+            </div>
+            <div class="col-lg-7">
+              <div class="glass-card p-4 p-lg-5">
+                <span class="section-eyebrow mb-3">Secure Upload</span>
+                <h1 class="page-title mb-2">Submit verification documents</h1>
+                <p class="section-copy mb-4">
+                  Upload one government ID and one recent photo. Accepted formats: PDF, JPG, and PNG.
+                  Maximum file size is 2MB per file. The government ID file name must include your
+                  unique candidate ID for verification.
+                </p>
+                <form id="uploadDocsForm" enctype="multipart/form-data">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="candidateId" name="candidateId" type="text" placeholder="" required />
+                    <label for="candidateId">Unique candidate ID</label>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="governmentId">Government ID</label>
+                    <input class="form-control" id="governmentId" name="governmentId" type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                    <div class="form-text">Example file name: <code>ID_CSE101.pdf</code></div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="photo">Candidate photo</label>
+                    <input class="form-control" id="photo" name="photo" type="file" accept=".jpg,.jpeg,.png" required />
+                  </div>
+                  <div class="form-floating mb-4">
+                    <textarea class="form-control" id="bio" name="bio" placeholder="" style="height: 140px"></textarea>
+                    <label for="bio">Short bio</label>
+                  </div>
+                  <button type="submit" class="btn">Submit Verification Documents</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div id="loadingOverlay" class="loading-overlay" aria-hidden="true">
+        <div class="spinner-card">
+          <div class="spinner-border text-light mb-3" aria-hidden="true"></div>
+          <p class="mb-0" data-loader-text>Working securely...</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>
